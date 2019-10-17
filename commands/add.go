@@ -41,6 +41,9 @@ func addAction(c *cli.Context) error {
 			return fmt.Errorf("This has already added.")
 		}
 
+		manager := pkg.NewPackageManager(newPkg.Manager)
+		manager.Add(newPkg.Name)
+
 		store.Packages.Add(newPkg)
 		store.Save(config.Store.ReadFile())
 
