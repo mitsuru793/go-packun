@@ -20,7 +20,7 @@ func (m *BrewCask) Exists(name string) bool {
 }
 
 func (*BrewCask) Add(name string) {
-	exec.Command("brew", "cask", "install", name)
+	exec.Command("brew", "cask", "install", name).Run()
 }
 
 func (*BrewCask) callApi(path string) (resp *http.Response, err error) {

@@ -20,7 +20,7 @@ func (m *Yarn) Exists(name string) bool {
 }
 
 func (*Yarn) Add(name string) {
-	exec.Command("yarn", "global", "add", "--silent", name)
+	exec.Command("yarn", "global", "add", "--silent", name).Run()
 }
 
 func (*Yarn) callApi(path string) (resp *http.Response, err error) {

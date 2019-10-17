@@ -20,7 +20,7 @@ func (m *Gem) Exists(name string) bool {
 }
 
 func (*Gem) Add(name string) {
-	exec.Command("gem", "install", name)
+	exec.Command("gem", "install", name).Run()
 }
 
 func (*Gem) callApi(path string) (resp *http.Response, err error) {

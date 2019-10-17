@@ -20,7 +20,7 @@ func (m *Composer) Exists(name string) bool {
 }
 
 func (*Composer) Add(name string) {
-	exec.Command("composer", "global", "require", name)
+	exec.Command("composer", "global", "require", name).Run()
 }
 
 func (*Composer) callApi(path string) (resp *http.Response, err error) {

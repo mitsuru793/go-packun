@@ -20,7 +20,7 @@ func (m *Pip3) Exists(name string) bool {
 }
 
 func (*Pip3) Add(name string) {
-	exec.Command("pip3", "install", name)
+	exec.Command("pip3", "install", name).Run()
 }
 
 func (*Pip3) callApi(path string) (resp *http.Response, err error) {
