@@ -18,17 +18,17 @@ type PackageManager interface {
 func NewPackageManager(pType string) PackageManager {
 	switch pType {
 	case manager.BREW:
-		return new(manager.Brew)
+		return &manager.Brew{}
 	case manager.BREW_CASK:
-		return new(manager.BrewCask)
+		return &manager.BrewCask{}
 	case manager.YARN:
-		return new(manager.Yarn)
+		return &manager.Yarn{}
 	case manager.COMPOSER:
-		return new(manager.Composer)
+		return &manager.Composer{}
 	case manager.PIP3:
-		return new(manager.Pip3)
+		return &manager.Pip3{}
 	case manager.GEM:
-		return new(manager.Gem)
+		return &manager.Gem{}
 	default:
 		panic("Invalid package type")
 	}
