@@ -53,7 +53,7 @@ func addAction(c *cli.Context) error {
 func askPackageManager() (string, error) {
 	pType := util.Ask("which package")
 	if !pkg.ExistsManager(pType) {
-		return "", fmt.Errorf("Invalid package type:", pType)
+		return "", fmt.Errorf("Invalid package type: %s", pType)
 	}
 	return pType, nil
 }
@@ -61,7 +61,7 @@ func askPackageManager() (string, error) {
 func askPackageName(pkgManager pkg.PackageManager) (*pkg.Package, error) {
 	pName := util.Ask("package name")
 	if !pkgManager.Exists(pName) {
-		return nil, fmt.Errorf("Not found package:", pName)
+		return nil, fmt.Errorf("Not found package: %s", pName)
 	}
 
 	newPkg := &pkg.Package{

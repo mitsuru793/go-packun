@@ -22,7 +22,7 @@ func NewConfig() *Config {
 
 func Load(path string) (*Config, error) {
 	if !util.Exists(path) {
-		return nil, fmt.Errorf("Not found file:", path)
+		return nil, fmt.Errorf("Not found file: %s", path)
 	}
 	var config Config
 	if _, err := toml.DecodeFile(path, &config); err != nil {
