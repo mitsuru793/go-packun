@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"net/http"
-	"os/exec"
+	"github.com/mitsuru793/go-packun/util"
 )
 
 const YARN = "yarn"
@@ -20,7 +20,7 @@ func (m *Yarn) Exists(name string) bool {
 }
 
 func (*Yarn) Add(name string) {
-	exec.Command("yarn", "global", "add", "--silent", name).Run()
+	util.RunCommand("yarn global add --silent " + name)
 }
 
 func (*Yarn) callApi(path string) (resp *http.Response, err error) {

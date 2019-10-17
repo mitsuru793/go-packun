@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"net/http"
-	"os/exec"
+	"github.com/mitsuru793/go-packun/util"
 )
 
 const COMPOSER = "composer"
@@ -20,7 +20,7 @@ func (m *Composer) Exists(name string) bool {
 }
 
 func (*Composer) Add(name string) {
-	exec.Command("composer", "global", "require", name).Run()
+	util.RunCommand("composer global require " + name)
 }
 
 func (*Composer) callApi(path string) (resp *http.Response, err error) {

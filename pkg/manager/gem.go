@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"net/http"
-	"os/exec"
+	"github.com/mitsuru793/go-packun/util"
 )
 
 const GEM = "gem"
@@ -20,7 +20,7 @@ func (m *Gem) Exists(name string) bool {
 }
 
 func (*Gem) Add(name string) {
-	exec.Command("gem", "install", name).Run()
+	util.RunCommand("gem install " + name)
 }
 
 func (*Gem) callApi(path string) (resp *http.Response, err error) {

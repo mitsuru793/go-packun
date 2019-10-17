@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"net/http"
-	"os/exec"
+	"github.com/mitsuru793/go-packun/util"
 )
 
 const PIP3 = "pip3"
@@ -20,7 +20,7 @@ func (m *Pip3) Exists(name string) bool {
 }
 
 func (*Pip3) Add(name string) {
-	exec.Command("pip3", "install", name).Run()
+	util.RunCommand("pip3 install " + name)
 }
 
 func (*Pip3) callApi(path string) (resp *http.Response, err error) {

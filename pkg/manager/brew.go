@@ -3,7 +3,7 @@ package manager
 import (
 	"fmt"
 	"net/http"
-	"os/exec"
+	"github.com/mitsuru793/go-packun/util"
 )
 
 const BREW string = "brew"
@@ -20,7 +20,7 @@ func (m *Brew) Exists(name string) bool {
 }
 
 func (*Brew) Add(name string) {
-	exec.Command("brew", "install", name).Run()
+	util.RunCommand("brew install " + name)
 }
 
 func (*Brew) callApi(path string) (resp *http.Response, err error) {
