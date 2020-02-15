@@ -30,7 +30,7 @@ $ go get github.com/mitsuru793/go-packun
 
 ### Add
 
-It's Iteractive and validate package name.
+It's interactive and validate package name.
 
 ```
 $ go-packun add
