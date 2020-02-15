@@ -10,9 +10,10 @@ var Types = []string{
 }
 
 type PackageManager interface {
+	Name() string
 	Exists(name string) bool
 	Add(name string)
-	Name() string
+	Remove(name string)
 }
 
 func NewPackageManager(pType string) PackageManager {

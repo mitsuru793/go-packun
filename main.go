@@ -17,6 +17,7 @@ func init() {
 	cmds = []cli.Command{
 		commands.NewAdd(),
 		commands.NewInstall(),
+		commands.NewRemove(),
 	}
 }
 

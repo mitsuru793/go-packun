@@ -23,6 +23,10 @@ func (*Gem) Add(name string) {
 	util.RunCommand("gem install " + name)
 }
 
+func (*Gem) Remove(name string) {
+	util.RunCommand("gem uninstall " + name)
+}
+
 func (*Gem) callApi(path string) (resp *http.Response, err error) {
 	endPoint := "https://rubygems.org/api/v1"
 	return http.Get(endPoint + path)

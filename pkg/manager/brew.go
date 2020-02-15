@@ -23,6 +23,10 @@ func (*Brew) Add(name string) {
 	util.RunCommand("brew install " + name)
 }
 
+func (*Brew) Remove(name string) {
+	util.RunCommand("brew uninstall " + name)
+}
+
 func (*Brew) callApi(path string) (resp *http.Response, err error) {
 	endPoint := "https://formulae.brew.sh/api"
 	return http.Get(endPoint + path)

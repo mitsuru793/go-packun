@@ -23,6 +23,10 @@ func (*Pip3) Add(name string) {
 	util.RunCommand("pip3 install " + name)
 }
 
+func (*Pip3) Remove(name string) {
+	util.RunCommand("pip3 uninstall " + name)
+}
+
 func (*Pip3) callApi(path string) (resp *http.Response, err error) {
 	endPoint := "https://pypi.org/pypi"
 	return http.Get(endPoint + path)

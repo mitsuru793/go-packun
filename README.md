@@ -51,3 +51,15 @@ Install all packages from `~/.go-packun/store.toml`.
 ```
 $ go-packun install
 ```
+
+### Remove
+
+It's interactive and validate package name.
+
+```
+$ go-packun remove
+which package
+> brew
+package name
+> tig
+```

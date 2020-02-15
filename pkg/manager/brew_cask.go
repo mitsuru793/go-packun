@@ -23,6 +23,10 @@ func (*BrewCask) Add(name string) {
 	util.RunCommand("brew cask install " + name)
 }
 
+func (*BrewCask) Remove(name string) {
+	util.RunCommand("brew cask uninstall " + name)
+}
+
 func (*BrewCask) callApi(path string) (resp *http.Response, err error) {
 	endPoint := "https://formulae.brew.sh/api"
 	return http.Get(endPoint + path)

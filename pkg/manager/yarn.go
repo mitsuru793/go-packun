@@ -23,6 +23,10 @@ func (*Yarn) Add(name string) {
 	util.RunCommand("yarn global add --silent " + name)
 }
 
+func (*Yarn) Remove(name string) {
+	util.RunCommand("yarn global remove --silent " + name)
+}
+
 func (*Yarn) callApi(path string) (resp *http.Response, err error) {
 	endPoint := "https://replicate.npmjs.com"
 	return http.Get(endPoint + path)

@@ -27,6 +27,18 @@ func (pkgs *Packages) Add(newPkg *Package) *Packages {
 	return pkgs
 }
 
+func (pkgs *Packages) Remove(pkg *Package) *Packages {
+	filtered := Packages{}
+	for _, p := range *pkgs {
+		if p.equals(pkg) {
+			continue
+		}
+		filtered = append(filtered, p)
+	}
+	*pkgs = filtered
+	return pkgs
+}
+
 func (p *Package) equals(other *Package) bool {
 	return p.Manager == other.Manager &&
 		p.Name == other.Name
